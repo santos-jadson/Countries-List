@@ -33,6 +33,18 @@ export const Container = styled.div `
        }
     }
 
+    @media(max-width: 470px) {
+        padding: 30px;
+
+        > a {
+            margin-bottom: 60px;
+        }
+    }
+
+    @media(max-width: 410px) {
+        padding: 20px;
+    }
+
 `
 
 export const CountryInfo = styled.div `
@@ -94,17 +106,186 @@ export const CountryInfo = styled.div `
                 box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
                 border: none;
                 border-radius: 4px;
-                min-width: 110px;
+                width: 110px;
                 font-weight: 300;
                 font-size: 14px;
                 cursor: pointer;
                 text-decoration: none;
                 padding: 8px;
                 text-align: center;
+                transition: ease 0.3s;
+
+                &:hover {
+                    transform: translateY(5px);
+                }
             }
         }
     }
 
-    
+    @media(max-width: 1240px) {
+        > img {
+            margin-right: 50px;
+        }
+    }
+
+    @media(max-width: 1080px) {
+        > img {
+            width: 350px;
+        }
+
+        > .country-info {
+            > h1 {
+                font-size: 18px;
+            }
+
+            > ul {
+                column-gap: 30px;
+                margin-top: 20px;
+                
+                > li {
+                    font-size: 13px;
+                }
+            }
+            
+            > .border-countries {
+                margin-top: 30px;
+            
+                > h4 {
+                    font-size: 13px;
+                }
+
+                > a {
+                    font-size: 11px;
+                    width: 70px;
+                }
+            }
+        }
+    }
+
+    @media(max-width: 900px) {
+        flex-direction: column;
+
+        > img {
+            width: 500px;
+            margin: auto;
+        }
+
+        > .country-info {
+            margin-top: 50px;
+
+            > h1 {
+                font-size: 22px;
+            }
+
+            > ul {
+                column-gap: 80px;
+                margin-top: 35px;
+                
+                > li {
+                    font-size: 16px;
+                }
+            }
+            
+            > .border-countries {
+                margin-top: 40px;
+            
+                > h4 {
+                    font-size: 16px;
+                }
+
+                > a {
+                    font-size: 14px;
+                    width: 110px;
+                }
+            }
+        }
+    }
+
+    @media(max-width: 610px) {
+        > img {
+            width: 450px;
+        }
+
+        > .country-info {
+
+            > ul {
+                display: flex;
+                flex-direction: column;
+
+                > li:nth-child(5) {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+    @media(max-width: 550px) {
+
+        > img {
+            width: 400px;
+        }
+
+        > .country-info {
+            width: 100%;
+
+            > .border-countries {
+                display: grid;
+                grid-template-areas: 
+                    'title title title'
+                    'country1 country2 country3';
+
+                gap: 40px 10px;
+
+                > h4 {
+                    grid-area: title;
+                }
+
+                > a {
+                    width: 130px;
+                }
+
+                > a:first-child {
+                    grid-area: country1;
+                }
+
+                > a:nth-child(2) {
+                    grid-area: country2;
+                }
+
+                > a:last-child {
+                    grid-area: country3;
+                }
+            }
+        }
+    }  
+
+    @media(max-width: 500px) {
+
+        > img {
+            width: 350px;
+        }
+
+        > .country-info {
+
+            > .border-countries a {
+                    width: 110px;
+            }
+        }
+    }
+
+    @media(max-width: 440px) {
+
+        > img {
+            width: 300px;
+        }
+
+        > .country-info {
+
+            > .border-countries a {
+                font-size: 11px;
+                width: 90px;
+            }
+        }
+    }    
 
 `

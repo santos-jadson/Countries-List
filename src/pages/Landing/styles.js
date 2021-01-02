@@ -69,7 +69,34 @@ background-color: var(--color-primary-background);
             pointer-events: none;
         }
     }
-    
+
+    @media(max-width: 730px) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        > .input-search {
+            margin-bottom: 30px;
+        }
+    }
+
+    @media(max-width: 470px) {
+
+        padding: 0 30px;
+
+        > .input-search {
+            width: 350px;
+        }
+    }
+
+    @media(max-width: 410px) {
+        
+        padding: 0 20px;
+
+        > .input-search {
+            width: 300px;
+        }
+    }
+
 }
 `
 
@@ -78,14 +105,14 @@ export const CountryList = styled.ul`
 padding: 50px 50px;
 display: grid;
 grid-template-columns: repeat(4, 1fr);
-
 gap: 80px 60px;
+
 
     li {
         display: flex;
         flex-direction: column;
         background-color: var(--color-primary-element);
-        max-width: 270px;
+        width: 270px;
         font-family: 'Nunito Sans', sans-serif;
         border-radius: 4px;
         box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
@@ -98,7 +125,7 @@ gap: 80px 60px;
         }
 
         img {
-            max-width: 270px;
+            width: 270px;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
         }
@@ -126,9 +153,68 @@ gap: 80px 60px;
 
         &:hover {
             transform: translateY(10px);
-            //transform: scale(0.98,0.98);
         }
     }
 
+@media(max-width: 1320px) {
+    grid-template-columns: repeat(3, 1fr);
+
+    li {
+        width: 300px;
+
+        img {
+            width: 300px;
+        }
+    }
+
+}
+
+@media(max-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+    
+    li {
+        width: 400px;
+
+        img {
+            width: 400px;
+        }
+    }
+}
+
+@media(max-width: 940px) {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    li {
+        width: 500px;
+        margin-bottom: 100px;
+
+        img {
+            width: 500px;
+        }
+    }
+}
+
+@media(max-width: 600px) {
+    li {
+        width: 400px;
+
+        img {
+            width: 400px;
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    li {
+        width: 300px;
+
+        img {
+            width: 300px;
+        }
+    }
+}
 
 `

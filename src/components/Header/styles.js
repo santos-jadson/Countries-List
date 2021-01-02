@@ -47,4 +47,25 @@ box-shadow: 0px 0px 6px -3px rgba(0,0,0,0.54);
         width: 18px;
     }
 
+    @media(max-width: 470px) {
+
+        padding: 20px 30px;
+
+        .logo {
+            font-size: 18px;
+        }
+
+        .theme-switcher span {
+            font-size: 15px;
+        }
+
+        .theme-switcher img {
+            width: 15px;
+        }
+    }
+
+    @media(max-width: 410px) {
+        padding: 20px 20px;
+    }
+
 `
