@@ -8,7 +8,7 @@ export const Container = styled.div `
     display: flex;
     flex-direction: column;
 
-    > a {
+    > button {
         width: 120px;
         text-decoration: none;
         display: flex;

@@ -1,35 +1,54 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import back from '../../assets/images/left-arrow.svg'
 
-import brasil from '../../assets/images/brazil.svg.png'
-
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { handleIcon } from '../../util/iconsColor'
+
 import { Container, CountryInfo } from './styles'
 
 function Country() {
+  const { goBack } = useHistory()
+  const [ country, setCountry ] = useState(null)
+  const { id } = useParams()
 
   useEffect(() => {
     handleIcon()
   }, [])
 
+  useEffect(() => {
+    const url = `https://restcountries.eu/rest/v2/name/${id}`
+
+    fetch(url)
+      .then(response => {
+        response.json()
+          .then(res => {
+            setCountry(res[0])
+          })
+      })
+  }, [id])
+
+  if(!country){
+    return <h1>Carregando...</h1>
+  }
+
   return (
     <Container> 
-      <Link to="/">{<img className="icon" src={back} alt="back"/>} Back</Link>
+      {/*<Link to="/">{<img className="icon" src={back} alt="back"/>} Back</Link>*/}
+      <button type="button" onClick={goBack}>{<img className="icon" src={back} alt="back"/>} Back</button>
       <CountryInfo>
-        <img src={brasil} alt="Brazil"/>
+        <img src={country.flag} alt={country.name}/>
         <div className="country-info">
-          <h1>Brazil</h1>
+          <h1>{country.name}</h1>
           <ul>
-            <li>Native Name: <span>Brasil</span></li>
-            <li>Population: <span>11,319,511</span></li>
-            <li>Region: <span>Europe</span></li>
-            <li>Sub Region: <span>Western Europe</span></li>
-            <li>Capital: <span>Brussels</span></li>
-            <li>Top Domain Level: <span>.be</span></li>
-            <li>Currencies: <span>Euro</span></li>
-            <li>Languages: <span>Dutch, French, German</span></li>
+            <li>Native Name: <span>{country.nativeName}</span></li>
+            <li>Population: <span>{country.population}</span></li>
+            <li>Region: <span>{country.region}</span></li>
+            <li>Sub Region: <span>{country.subregion}</span></li>
+            <li>Capital: <span>{country.capital}</span></li>
+            <li>Top Domain Level: <span>{country.topLevelDomain.map(domain => `${domain}, `)}</span></li>
+            <li>Currencies: <span>{country.currencies.map(currencie => `${currencie.name}, `)}</span></li>
+            <li>Languages: <span>{country.languages.map(lang => `${lang.name}, `)}</span></li>
           </ul>
 
           <div className="border-countries">
