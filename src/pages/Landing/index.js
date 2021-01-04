@@ -44,6 +44,20 @@ function Landing() {
     }
   }
 
+  function handleSearchCountry( { value } ) {
+    let url = `https://restcountries.eu/rest/v2/name/${value}`
+
+    if(!value)
+      url = url.replace(`/name/${value}`, '');
+    
+    fetch(url)
+      .then(response => {
+        response.json().then(res => {
+          setCountries(res)
+        })
+      })
+  }
+
   if(!countries){
     return (
       <h1>Carregando</h1>
@@ -55,7 +69,7 @@ function Landing() {
         <div className='inputs'>
           <div className='input-search'>
             <img className='icon' src={search} alt="search" />
-            <input type="text" placeholder="Search for a country..."/>
+            <input type="text" onChange={e => handleSearchCountry(e.target)} placeholder="Search for a country..."/>
           </div>
           <div className="select-region">
             <select id="countries" onChange={e => fetchCountries(e.target.value)}>
