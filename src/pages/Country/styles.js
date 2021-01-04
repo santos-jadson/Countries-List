@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div `
     width: 100%;
     height: 100%;
-    padding: 50px;
+    padding: 50px 0 50px 50px;
 
     display: flex;
     flex-direction: column;
@@ -88,32 +88,32 @@ export const CountryInfo = styled.div `
 
         > .border-countries {
             margin-top: 50px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
 
             > h4 {
                 margin-right: 10px;
                 font-weight: 600;
                 font-size: 16px;
+                padding: 8px;
                 color: var(--color-primary-text);
             }
 
             > a {
-                margin-right: 5px;
                 background-color: var(--color-primary-element);
                 color: var(--color-primary-text);
                 box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.3);
                 border: none;
                 border-radius: 4px;
-                width: 110px;
+                margin: 0.3rem 0.3rem 0 0;
                 font-weight: 300;
                 font-size: 14px;
                 cursor: pointer;
                 text-decoration: none;
-                padding: 8px;
+                padding: 0.5rem 1rem;
                 text-align: center;
                 transition: ease 0.3s;
+                align-self: center;
 
                 &:hover {
                     transform: translateY(5px);
@@ -156,7 +156,6 @@ export const CountryInfo = styled.div `
 
                 > a {
                     font-size: 11px;
-                    width: 70px;
                 }
             }
         }
@@ -195,7 +194,6 @@ export const CountryInfo = styled.div `
 
                 > a {
                     font-size: 14px;
-                    width: 110px;
                 }
             }
         }
@@ -229,31 +227,11 @@ export const CountryInfo = styled.div `
             width: 100%;
 
             > .border-countries {
-                display: grid;
-                grid-template-areas: 
-                    'title title title'
-                    'country1 country2 country3';
-
-                gap: 40px 10px;
-
-                > h4 {
-                    grid-area: title;
-                }
+                grid-template-columns: repeat(1,1fr);
 
                 > a {
-                    width: 130px;
-                }
-
-                > a:first-child {
-                    grid-area: country1;
-                }
-
-                > a:nth-child(2) {
-                    grid-area: country2;
-                }
-
-                > a:last-child {
-                    grid-area: country3;
+                    width: 70%;
+                    margin: 0.2rem auto;
                 }
             }
         }
@@ -265,12 +243,6 @@ export const CountryInfo = styled.div `
             width: 350px;
         }
 
-        > .country-info {
-
-            > .border-countries a {
-                    width: 110px;
-            }
-        }
     }
 
     @media(max-width: 440px) {
@@ -283,7 +255,6 @@ export const CountryInfo = styled.div `
 
             > .border-countries a {
                 font-size: 11px;
-                width: 90px;
             }
         }
     }    

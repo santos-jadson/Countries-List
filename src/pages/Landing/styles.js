@@ -104,7 +104,7 @@ export const CountryList = styled.ul`
 
 padding: 50px 50px;
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(5, 1fr);
 gap: 80px 60px;
 
 
@@ -155,6 +155,10 @@ gap: 80px 60px;
             transform: translateY(10px);
         }
     }
+
+@media(max-width: 1580px) {
+    grid-template-columns: repeat(4, 1fr);
+}
 
 @media(max-width: 1320px) {
     grid-template-columns: repeat(3, 1fr);
