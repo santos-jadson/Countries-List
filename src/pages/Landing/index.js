@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 import search from '../../assets/images/loupe.svg'
-/*import brasil from '../../assets/images/brazil.svg.png'
-import belgica from '../../assets/images/belgica.jpg'
-import eua from '../../assets/images/eua.jpg'
-import italia from '../../assets/images/italia.svg'*/
 
 import { handleIcon } from '../../util/iconsColor'
 import { Link } from 'react-router-dom'
+
+import  Loading  from '../../components/Loading'
 
 import { MainContainer, CountryList } from './styles'
 
 function Landing() {
   const [countries, setCountries] = useState(null)
-
-  useEffect(() => {
-    handleIcon()
-  }, [])
 
   useEffect(() => {
     fetchCountries()
@@ -35,6 +29,7 @@ function Landing() {
       .then(response => {
         response.json().then(res => {
           setCountries(res)
+          
         })
       })
 
@@ -60,10 +55,10 @@ function Landing() {
 
   if(!countries){
     return (
-      <h1>Carregando</h1>
+      <Loading />
     )
   }
-
+  
   return (
     <MainContainer>
         <div className='inputs'>
@@ -99,7 +94,9 @@ function Landing() {
               </li>
             )
           }
+          
         </CountryList>
+        {handleIcon()}
     </MainContainer>
   );
 }

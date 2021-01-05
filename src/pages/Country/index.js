@@ -5,6 +5,8 @@ import back from '../../assets/images/left-arrow.svg'
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { handleIcon } from '../../util/iconsColor'
 
+import Loading from '../../components/Loading'
+
 import { Container, CountryInfo } from './styles'
 
 function Country() {
@@ -13,10 +15,6 @@ function Country() {
   const { goBack } = useHistory()
   const [ country, setCountry ] = useState(null)
   const { id } = useParams()
-
-  useEffect(() => {
-    handleIcon()
-  }, [])
 
   const fetchBorders = useCallback( borderArray => {
     const helperArray = []
@@ -48,7 +46,7 @@ function Country() {
   }, [id, fetchBorders])
 
   if(!country || !border){
-    return <h1>Carregando...</h1>
+    return <Loading />
   }
 
   return (
@@ -76,9 +74,9 @@ function Country() {
               )
             }
           </div>
-
         </div>
       </CountryInfo>
+      {handleIcon()}
     </Container>
   );
 }
