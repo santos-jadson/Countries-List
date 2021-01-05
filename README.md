@@ -8,6 +8,8 @@ Thanks for checking out this coding challenge from [Frontend Mentor](https://www
 
 I did it just to try making a theme switching..
 
+You can see a live version [here](https://country-api-three.vercel.app/)
+
 ## How can I run it?!
 
 Well, you just need to type these commands after clonning this repo.
